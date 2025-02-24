@@ -66,30 +66,7 @@
             BackgroundRepaint();
         }
 
-        private void Entry(object sender, TextChangedEventArgs e)
-        {
-            if (sender is Entry entry)
-            {
-                debounceDispatcher.Debounce(500, () =>
-                {
-                    try
-                    {
-                        Color newColor = Color.FromHex(entry.Text);
-                        RedValue = (int)(newColor.Red * 255);
-                        GreenValue = (int)(newColor.Green * 255);
-                        BlueValue = (int)(newColor.Blue * 255);
-                        RedSlider.Value = RedValue;
-                        GreenSlider.Value = GreenValue;
-                        BlueSlider.Value = BlueValue;
-                        BackgroundRepaint();
-                    }
-                    catch
-                    {
-                        BackgroundRepaint();
-                    }
-                });
-            }
-        }
+        
     }
 
 }

@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ColorPicker.MainPage"
+             WidthRequest="540"
+             HeightRequest="560">
+    <Frame CornerRadius="20" 
+           WidthRequest="500"
+            HeightRequest="500"
+           BackgroundColor="White">
+        <StackLayout
+        BackgroundColor="White"
+        >
+
+            <Label 
+            TextColor="black" 
+            Text="Color Picker"
+            FontSize="Header"
+            HorizontalOptions="Center"
+            VerticalOptions="Start"
+            >
+
+            </Label>
+            <Label
+                x:Name="RedLabel"
+                Text="Red Value:"
+                TextColor="Black"
+                HorizontalOptions="Start"
+                FontSize="Medium">
+
+            </Label>
+            <Slider
+                x:Name="RedSlider"
+                ValueChanged="RedSliderMoved"
+                Minimum="0"
+                Maximum="255"
+                MaximumTrackColor="White"
+                MinimumTrackColor="Red"
+            ></Slider>
+            <Label
+                x:Name="GreenLabel"
+                Text="Green Value: "
+                TextColor="Black"
+                HorizontalOptions="Start"
+                FontSize="Medium">
+
+            </Label>
+            <Slider
+                x:Name="GreenSlider"
+                ValueChanged="GreenSliderMoved"
+                Minimum="0"
+                Maximum="255"
+                MaximumTrackColor="White"
+                MinimumTrackColor="Green"
+            ></Slider>
+            <Label
+                x:Name="BlueLabel"
+                Text="Blue Value: "
+                TextColor="Black"
+                HorizontalOptions="Start"
+                FontSize="Medium">
+
+                        </Label>
+                        <Slider
+                x:Name="BlueSlider"
+                ValueChanged="BlueSliderMoved"
+                Minimum="0"
+                Maximum="255"
+                MaximumTrackColor="White"
+                MinimumTrackColor="Blue"
+            ></Slider>
+            <Frame x:Name="ColorFrame"
+                CornerRadius="20"
+                WidthRequest="300"
+                HeightRequest="100"
+                BackgroundColor="Black">
+                <Entry
+                    x:Name="ColorLabel"
+                    Text="HEX"
+                    TextColor="White"          
+                    BackgroundColor="Black"
+                    HorizontalTextAlignment="Center"
+                    VerticalTextAlignment="Center"
+                    HorizontalOptions="FillAndExpand"
+                    FontSize="Medium"
+                    TextChanged="Entry"
+                    >
+                    <Entry.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnLabelTapped" />
+                    </Entry.GestureRecognizers>
+                </Entry>
+            </Frame>
+            <Button
+                x:Name="RandomColorButton"
+                WidthRequest="400"
+                HeightRequest="20"
+                Clicked="RandomColor"
+                Text="Random Color"
+                TextColor="White"
+                Margin="30"
+                BackgroundColor="Black">
+                
+            </Button>
+                
+        </StackLayout>
+    </Frame>
+
+
+</ContentPage>

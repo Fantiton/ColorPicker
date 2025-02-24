@@ -6,7 +6,7 @@
         int RedValue = 0;
         int GreenValue = 0;
         int BlueValue = 0;
-
+        private DebounceDispatcher debounceDispatcher = new DebounceDispatcher();
         public MainPage()
         {
             InitializeComponent();
@@ -66,16 +66,29 @@
             BackgroundRepaint();
         }
 
-        private void Entry(object sender, EventArgs e)
+        private void Entry(object sender, TextChangedEventArgs e)
         {
-            Color newColor = Color.FromHex(ColorLabel.Text);
-            RedValue = (int)newColor.Red * 255;
-            GreenValue = (int)newColor.Green * 255;
-            BlueValue = (int)newColor.Blue * 255;
-            RedSlider.Value = RedValue;
-            GreenSlider.Value = GreenValue;
-            BlueSlider.Value = BlueValue;
-            BackgroundRepaint();
+            if (sender is Entry entry)
+            {
+                debounceDispatcher.Debounce(500, () =>
+                {
+                    try
+                    {
+                        Color newColor = Color.FromHex(entry.Text);
+                        RedValue = (int)(newColor.Red * 255);
+                        GreenValue = (int)(newColor.Green * 255);
+                        BlueValue = (int)(newColor.Blue * 255);
+                        RedSlider.Value = RedValue;
+                        GreenSlider.Value = GreenValue;
+                        BlueSlider.Value = BlueValue;
+                        BackgroundRepaint();
+                    }
+                    catch
+                    {
+                        BackgroundRepaint();
+                    }
+                });
+            }
         }
     }
 

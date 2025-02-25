@@ -74,7 +74,7 @@
                 WidthRequest="300"
                 HeightRequest="100"
                 BackgroundColor="Black">
-                <Label
+                <Entry
                     x:Name="ColorLabel"
                     Text="HEX"
                     TextColor="White"          
@@ -83,11 +83,12 @@
                     VerticalTextAlignment="Center"
                     HorizontalOptions="FillAndExpand"
                     FontSize="Medium"
+                    TextChanged="Entry"
                     >
-                    <Label.GestureRecognizers>
+                    <Entry.GestureRecognizers>
                         <TapGestureRecognizer Tapped="OnLabelTapped" />
-                    </Label.GestureRecognizers>
-                </Label>
+                    </Entry.GestureRecognizers>
+                </Entry>
             </Frame>
             <Button
                 x:Name="RandomColorButton"
